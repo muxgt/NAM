@@ -90,7 +90,7 @@ class NAM():
             rec_loss.backward()
             optimizerT.step()
             optimizerZ.step()
-            er += rec_loss.data[0]
+            er += rec_loss.item()
         er = er / batch_n
         return er
 
