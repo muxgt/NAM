@@ -51,7 +51,7 @@ class _VGGDistance(nn.Module):
         f2 = self.vgg(I2, self.levels)
         loss = torch.abs(I1 - I2).mean()
         # loss += 10 * torch.abs(self.pool(I1) - self.pool(I2)).mean()
-        self.factors[-1] += loss.data[0]
+        self.factors[-1] += loss.item()
         if use_factors:
             loss = sum_factors / (self.factors[-1] + eps) * loss
         for i in range(self.levels):
