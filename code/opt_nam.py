@@ -141,7 +141,7 @@ class NAM():
             # Backward pass and optimization step
             rec_loss.backward()
             optimizerZ.step()
-            er += rec_loss.data[0]
+            er += rec_loss.item()
         er = er / batch_n
         return er
 
